@@ -74,7 +74,7 @@ const Hero = () => {
               
               {/* Using the placeholder image */}
               <img 
-                src="public\lovable-uploads\Akhil_circle_1.png" 
+                src="public\lovable-uploads\akhil_circle_1.png" 
                 alt="Akhil R" 
                 className="absolute inset-0 rounded-full w-full h-full object-cover"
               />
