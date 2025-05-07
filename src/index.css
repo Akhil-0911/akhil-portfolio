@@ -1,0 +1,233 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 213 100% 42%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 173 100% 38%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 43 100% 67%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-charcoal;
+  }
+  
+  section {
+    @apply py-16 px-4 md:px-8 lg:px-16 scroll-mt-16;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl mb-8 text-center relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-royal rounded-full;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-royal to-teal bg-clip-text text-transparent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-royal hover:bg-royal/90 h-10 px-6 py-2 rounded-md text-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-teal hover:bg-teal/90 h-10 px-6 py-2 rounded-md text-white;
+  }
+  
+  .btn-outline {
+    @apply border border-royal text-royal hover:bg-royal hover:text-white h-10 px-6 py-2 rounded-md;
+  }
+  
+  .btn-accent {
+    @apply bg-yellow text-charcoal hover:bg-yellow/90 h-10 px-6 py-2 rounded-md;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .service-card {
+    @apply card border-t-4 hover:-translate-y-1;
+  }
+  
+  .project-card {
+    @apply card overflow-hidden;
+  }
+  
+  .skill-badge {
+    @apply bg-muted text-charcoal px-3 py-1 rounded-full text-sm inline-block m-1 font-medium;
+  }
+  
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-royal ml-4;
+  }
+  
+  .timeline-dot {
+    @apply absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-royal;
+  }
+}
+
+/* Animation styles - modified for better scroll behavior */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.8s ease-out forwards;
+}
+
+/* Circular progress bar animations - fixed to not disappear on scroll */
+@keyframes progress {
+  0% {
+    stroke-dashoffset: 500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-progress {
+  animation: progress 1.5s ease-out forwards;
+}
+
+/* Fixed fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+  opacity: 1 !important;
+}
+
+/* Hover animations for cards and buttons */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-translate {
+  transition: transform 0.3s ease;
+}
+
+.hover-translate:hover {
+  transform: translateY(-5px);
+}
+
+/* Certificate card animations */
+.certificate-card {
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px -5px rgba(0, 87, 217, 0.1);
+}
+
+.certificate-card-compact {
+  transition: all 0.3s ease;
+}
+
+.certificate-card-compact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 87, 217, 0.1);
+}
+
+/* Form field transitions */
+input, textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #0057D9;
+  box-shadow: 0 0 0 3px rgba(0, 87, 217, 0.1);
+}
+
+/* Fix for quick links visibility */
+footer .text-gray-400 {
+  color: #a0aec0 !important;
+}
+
+footer .text-gray-400:hover {
+  color: #38b2ac !important;
+}
