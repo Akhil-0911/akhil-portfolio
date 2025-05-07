@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -70,12 +69,12 @@ const Hero = () => {
               
               {/* Adding the "Freelancer" label at the top */}
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-teal text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-bounce">
-                Freelancer
+                CSE Student
               </div>
               
               {/* Using the placeholder image */}
               <img 
-                src="public\lovable-uploads\Akhil.jpg" 
+                src="public\lovable-uploads\Akhil_circle_1.png" 
                 alt="Akhil R" 
                 className="absolute inset-0 rounded-full w-full h-full object-cover"
               />
