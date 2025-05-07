@@ -7,7 +7,7 @@ const Hero = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-  const [imageError, setImageError] = useState(false); // State for image error
+  const [useFallbackImage, setUseFallbackImage] = useState(false); // Fallback flag
 
   useEffect(() => {
     if (textRef.current && !textRef.current.classList.contains('animate-slide-in')) {
@@ -70,19 +70,15 @@ const Hero = () => {
                 CSE Student
               </div>
 
-              {/* Profile Image or Error Fallback */}
-              {!imageError ? (
-                <img 
-                  src="/lovable-uploads/akhil_circle_1.png" 
-                  alt="Akhil R" 
-                  className="absolute inset-0 rounded-full w-full h-full object-cover"
-                  onError={() => setImageError(true)}
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 text-center text-sm px-4">
-                  Image not found. Please check if <code>/lovable-uploads/akhil_circle_1.png</code> exists.
-                </div>
-              )}
+              {/* Profile Image with Fallback */}
+              <img 
+                src={useFallbackImage 
+                  ? '/lovable-uploads/akhil_circle.png' 
+                  : '/lovable-uploads/akhil_circle_1.png'} 
+                alt="Akhil R" 
+                className="absolute inset-0 rounded-full w-full h-full object-cover"
+                onError={() => setUseFallbackImage(true)}
+              />
             </div>
           </div>
         </div>
