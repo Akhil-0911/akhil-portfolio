@@ -7,7 +7,9 @@ const Hero = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-  const [useFallbackImage, setUseFallbackImage] = useState(false); // Fallback flag
+
+  const [imageSrc, setImageSrc] = useState('/lovable-uploads/akhil_circle_1.png');
+  const fallbackSrc = '/lovable-uploads/akhil_circle.png';
 
   useEffect(() => {
     if (textRef.current && !textRef.current.classList.contains('animate-slide-in')) {
@@ -33,7 +35,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative pt-20 pb-16 overflow-hidden">
-      {/* Abstract Background Elements */}
+      {/* Background */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-teal/10 rounded-full filter blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-royal/10 rounded-full filter blur-3xl -z-10"></div>
 
@@ -65,19 +67,21 @@ const Hero = () => {
               <div className="absolute -top-4 -left-4 right-4 bottom-4 bg-royal/5 rounded-full"></div>
               <div className="absolute -top-2 -left-2 right-2 bottom-2 bg-royal/10 rounded-full"></div>
 
-              {/* Freelancer Label */}
+              {/* Label */}
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-teal text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-bounce">
                 CSE Student
               </div>
 
-              {/* Profile Image with Fallback */}
-              <img 
-                src={useFallbackImage 
-                  ? '/lovable-uploads/akhil_circle.png' 
-                  : '/lovable-uploads/akhil_circle_1.png'} 
-                alt="Akhil R" 
+              {/* Image */}
+              <img
+                src={imageSrc}
+                alt="Akhil R"
                 className="absolute inset-0 rounded-full w-full h-full object-cover"
-                onError={() => setUseFallbackImage(true)}
+                onError={() => {
+                  if (imageSrc !== fallbackSrc) {
+                    setImageSrc(fallbackSrc);
+                  }
+                }}
               />
             </div>
           </div>
