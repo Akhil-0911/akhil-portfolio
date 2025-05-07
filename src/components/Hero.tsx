@@ -69,7 +69,7 @@ const Hero = () => {
               
               {/* Adding the "Freelancer" label at the top */}
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-teal text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-bounce">
-                CSE
+                CSE Student
               </div>
               
               {/* Using the placeholder image */}
