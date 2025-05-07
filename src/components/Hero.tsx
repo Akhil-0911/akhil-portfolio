@@ -73,7 +73,7 @@ const Hero = () => {
               {/* Profile Image or Error Fallback */}
               {!imageError ? (
                 <img 
-                  src="/lovable-uploads/akhil_circle_1.png" 
+                  src="/akhil_circle_1.png" 
                   alt="Akhil R" 
                   className="absolute inset-0 rounded-full w-full h-full object-cover"
                   onError={() => setImageError(true)}
