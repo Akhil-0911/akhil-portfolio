@@ -7,9 +7,7 @@ const Hero = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-
-  const [imageSrc, setImageSrc] = useState('/lovable-uploads/akhil_circle_1.png');
-  const fallbackSrc = '/lovable-uploads/akhil_circle.png';
+  const [imageError, setImageError] = useState(false); // State for image error
 
   useEffect(() => {
     if (textRef.current && !textRef.current.classList.contains('animate-slide-in')) {
@@ -35,7 +33,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative pt-20 pb-16 overflow-hidden">
-      {/* Background */}
+      {/* Abstract Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-teal/10 rounded-full filter blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-royal/10 rounded-full filter blur-3xl -z-10"></div>
 
@@ -67,22 +65,24 @@ const Hero = () => {
               <div className="absolute -top-4 -left-4 right-4 bottom-4 bg-royal/5 rounded-full"></div>
               <div className="absolute -top-2 -left-2 right-2 bottom-2 bg-royal/10 rounded-full"></div>
 
-              {/* Label */}
+              {/* Freelancer Label */}
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-teal text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-bounce">
                 CSE Student
               </div>
 
-              {/* Image */}
-              <img
-                src={imageSrc}
-                alt="Akhil R"
-                className="absolute inset-0 rounded-full w-full h-full object-cover"
-                onError={() => {
-                  if (imageSrc !== fallbackSrc) {
-                    setImageSrc(fallbackSrc);
-                  }
-                }}
-              />
+              {/* Profile Image or Error Fallback */}
+              {!imageError ? (
+                <img 
+                  src="/lovable-uploads/akhil_circle_1.png" 
+                  alt="Akhil R" 
+                  className="absolute inset-0 rounded-full w-full h-full object-cover"
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 text-center text-sm px-4">
+                  Image not found. Please check if <code>/lovable-uploads/akhil_circle_1.png</code> exists.
+                </div>
+              )}
             </div>
           </div>
         </div>
