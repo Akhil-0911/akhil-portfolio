@@ -62,7 +62,7 @@ const About = () => {
                 <h5 className="font-medium mb-2">Focus Areas:</h5>
                 <ul className="list-disc list-inside text-gray space-y-1">
                   <li>Cybersecurity & Network Defense</li>
-                  <li>Machine Learning & Data Science</li>
+                  <li>Machine Learning & Deep Learning</li>
                   <li>Backend Development</li>
                   <li>Secure Application Design</li>
                 </ul>

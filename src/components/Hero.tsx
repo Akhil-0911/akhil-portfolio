@@ -44,7 +44,7 @@ const Hero = () => {
               <span className="gradient-text">Akhil <span className="text-royal">R</span></span>
             </h1>
             <h2 className="text-2xl lg:text-3xl font-semibold text-charcoal">
-              Backend Developer & Bug Bounty Hunter
+              Backend Developer & Cybersecurity Enthusiast
             </h2>
             <p className="text-lg text-gray max-w-lg">
               Passionate about securing the future with intelligent technology
