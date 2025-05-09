@@ -59,6 +59,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+                  <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-4">Intrested Fields</h3>
+            <ul className="space-y-2">
+              <li className="text-gray-400">Cybersecurity Development</li>
+              <li className="text-gray-400">ML Model Development</li>
+            </ul>
+          </div>
         
         <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col items-center">
