@@ -4,19 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Akhil R | Backend Developer & Bug Bounty Hunter</title>
+
+    <!-- Basic Meta Info -->
     <meta name="description" content="Portfolio of Akhil R - Backend Developer & Bug Bounty Hunter specializing in Cybersecurity and AI/ML" />
     <meta name="author" content="Akhil R" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Keywords for SEO -->
     <meta name="keywords" content="Akhil R, Cybersecurity, AI/ML Developer, Python Developer Portfolio, Bug Bounty Hunter, Backend Developer, Security Engineer" />
+
+    <!-- Open Graph (No Image) -->
+    <meta property="og:title" content="Akhil R | Backend Developer & Bug Bounty Hunter" />
+    <meta property="og:description" content="Portfolio of Akhil R - Cybersecurity & AI/ML Enthusiast" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://akhil-portfolio-yourdomain.com" />
+
+    <!-- Twitter Cards (No Image) -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Akhil R | Backend Developer & Bug Bounty Hunter" />
+    <meta name="twitter:description" content="Portfolio of Akhil R - Cybersecurity & AI/ML Enthusiast" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Optional: Disable Image Loading from Unknown Sources -->
+    <style>
+      img, picture, source {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+
+    <!-- Prevent dynamic image elements from being added -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll("img, picture, source");
+        images.forEach(img => img.remove());
+
+        const observer = new MutationObserver(mutations => {
+          mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+              if (node.tagName === 'IMG' || node.tagName === 'PICTURE' || node.tagName === 'SOURCE') {
+                node.remove();
+              }
+            });
+          });
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      });
+    </script>
+
+    <!-- Your main app entry point -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
